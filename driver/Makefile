@@ -6,9 +6,9 @@ else ifeq ($(ARCH), riscv)
 	COMPILE := riscv64-unknown-linux-gnu-
 endif
 
-EXTRA_CFLAGS += -I$(PWD)/include -Werror -Walla
+EXTRA_CFLAGS += "-I$(PWD)/include -fno-stack-protector"
 
-ivc-y := ivc_driver.o
+ivc-y := ivc_driver.o hivc_template.dtb.o
 
 .SECONDARY: \
         $(obj)/hivc_template.dtb.S \
